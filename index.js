@@ -211,6 +211,7 @@ console.log(artists[2].bio)
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
+const correctName = artists[8]
 artists.slice(8, 9)[0].name = "Vincent Van Gogh"
 console.log(artists[8])
 
@@ -234,17 +235,31 @@ console.log(getArtistByIndex(artists, 6))
 
 function get20s(data) {
     let result = [];
-    for (let i = 0; i < data.lenght; i++) {
+    for (let i = 0; i < data.length; i++) {
         let converted = parseInt(data[i].years);
         if (converted >= 1900 && converted <= 2000) {
             result.push(data[i].name);
         }
     }
 
-    return result;
+    function years(artists) {
+        let array = []
+        for (let counter = 0; counter < artists.length; counter++) {
+            if (artists[counter].years.includes(19)) {
+                array.push(artists[counter].name)
+            }
+        }
+        return result;
+
+    }
+
+    console.log(get20s(artists));
+    console.log(years(artists));
 }
 
-console.log(get20s(artists));
+
+
+
 
 
 
@@ -282,11 +297,13 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 At the end, this function should return the new array with information added"*/
 
 function addArtist(id, name, years, genre, nationality, bio, wikipedia, paintings) {
-
     let newArtist = { id, name, years, genre, nationality, bio, wikipedia, paintings }
+
     artists.push(newArtist);
+
 }
-console.log(20, "Roy Weiss", "1978 to present", "Paint By Numbers", "American", "Roy really sucks at painting", "None", 0);
+console.log(addArtist(20, "Roy Weiss", "1978 to present", "Paint By Numbers", "American", "Roy really sucks at painting", "None", 0));
+console.log(artists);
 
 
 
@@ -302,18 +319,16 @@ and returns an array with names of artists who painted more than 100 paintings.
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
 function lotsOfArt(artists) {
-
     let x = [];
-    for (let i = 0; i < artists.lenght; i++) {
-        if (artists[i].paintings > 100)
-            x.push(artists[i.name]);
+    for (let i = 0; i < artists.length; i++) {
+        if (artists[i].paintings > 100) {
+            x.push(artists[i].name);
+        }
     }
     return x;
-
 }
 
 console.log(lotsOfArt(artists));
-
 
 
 // 🎨🎨 STRETCH 🎨🎨//
