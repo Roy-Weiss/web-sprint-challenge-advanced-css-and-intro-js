@@ -264,7 +264,7 @@ function removeArtist(array, index) {
     return
 }
 
-console.log(removeArtist(artists[9]))
+console.log(removeArtist(artists[9]));
 
 
 
@@ -281,11 +281,17 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist( /* Code here */ ) {
+function addArtist(id, name, years, genre, nationality, bio, wikipedia, paintings) {
 
-    /* Code here */
-
+    let newArtist = { id, name, years, genre, nationality, bio, wikipedia, paintings }
+    artists.push(newArtist);
 }
+console.log(20, "Roy Weiss", "1978 to present", "Paint By Numbers", "American", "Roy really sucks at painting", "None", 0);
+
+
+
+
+
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -295,11 +301,18 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt( /* Code here */ ) {
+function lotsOfArt(artists) {
 
-    /* Code here */
+    let x = [];
+    for (let i = 0; i < artists.lenght; i++) {
+        if (artists[i].paintings > 100)
+            x.push(artists[i.name]);
+    }
+    return x;
 
 }
+
+console.log(lotsOfArt(artists));
 
 
 
