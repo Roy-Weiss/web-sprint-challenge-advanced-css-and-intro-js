@@ -225,7 +225,7 @@ console.log(artists[8])
 function getArtistByIndex(array, index) {
     return `the artist at index ${index} is ${array[index].name}`
 }
-console.log(getArtistByIndex(artist, 6))
+console.log(getArtistByIndex(artists, 6))
 
 /**
 
@@ -259,9 +259,12 @@ console.log(get20s(artists));
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
  */
-function removeArtist( /*code here*/ ) {
-    /* code here */
+function removeArtist(array, index) {
+    artists.slice(artists, artists[index]);
+    return
 }
+
+console.log(removeArtist(artists[9]))
 
 
 
