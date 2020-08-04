@@ -233,29 +233,18 @@ console.log(getArtistByIndex(artists, 6))
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(data) {
-    let result = [];
-    for (let i = 0; i < data.length; i++) {
-        let converted = parseInt(data[i].years);
-        if (converted >= 1900 && converted <= 2000) {
-            result.push(data[i].name);
+function get20s(array) {
+    const newArray = [];
+    for (i = 0; i < array.length; i++)
+        if (!array[i].years.includes("18") && array[i].years.includes("19") || array[i].years.includes("2000")) {
+            newArray.push(array[i].name);
         }
-    }
 
-    function years(artists) {
-        let array = []
-        for (let counter = 0; counter < artists.length; counter++) {
-            if (artists[counter].years.includes(19)) {
-                array.push(artists[counter].name)
-            }
-        }
-        return result;
-
-    }
-
-    console.log(get20s(artists));
-    console.log(years(artists));
+    return newArray;
 }
+
+console.log(get20s(artists));
+
 
 
 
@@ -275,11 +264,13 @@ function get20s(data) {
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
  */
 function removeArtist(array, index) {
-    artists.slice(artists, artists[index]);
-    return
+    artists.slice(index, 10);
+    console.log(array.length);
+
 }
 
-console.log(removeArtist(artists[9]));
+removeArtist(artists, 10);
+console.log(artists)
 
 
 
@@ -295,15 +286,21 @@ nationality: Your Nationality Here
 bio: Add 1-2 sentences (or use lorem ipsum) 
 
 At the end, this function should return the new array with information added"*/
+const pushArtist = {
+    id: 20,
+    name: "Roy Weiss",
+    years: "1978 - Presant",
+    genre: "Paint by numbers",
+    nationality: "American",
+    bio: "Roy really sucks at painting"
 
-function addArtist(id, name, years, genre, nationality, bio, wikipedia, paintings) {
-    let newArtist = { id, name, years, genre, nationality, bio, wikipedia, paintings }
+};
 
-    artists.push(newArtist);
-
+function addArtist(pusharray) {
+    artists.push(pusharray);
+    console.log(artists);
 }
-console.log(addArtist(20, "Roy Weiss", "1978 to present", "Paint By Numbers", "American", "Roy really sucks at painting", "None", 0));
-console.log(artists);
+addArtist(pushArtist);
 
 
 
@@ -329,6 +326,7 @@ function lotsOfArt(artists) {
 }
 
 console.log(lotsOfArt(artists));
+
 
 
 // 🎨🎨 STRETCH 🎨🎨//
